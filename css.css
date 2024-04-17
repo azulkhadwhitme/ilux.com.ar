@@ -1,0 +1,61 @@
+/* Reset CSS básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Estilo del menú */
+  .menu {
+    background-color: #333;
+    padding: 10px;
+  }
+  
+  .menu ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .menu ul li {
+    display: inline;
+  }
+  
+  .menu ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+  }
+  
+  /* Estilo de las burbujas flotantes */
+  .contactos {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+  }
+  
+  .bubble {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    background-color: #007bff;
+    color: white;
+    border-radius: 50%;
+    margin-right: 10px;
+    font-size: 24px; /* Tamaño del ícono */
+  }
+  
+  .bubble:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Estilo de la imagen de fondo */
+  body {
+    background-image: url('tu_imagen.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  
