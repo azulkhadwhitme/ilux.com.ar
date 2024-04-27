@@ -6,12 +6,17 @@
   <title>Menú y Burbujas Flotantes</title>
   <link href="https://fonts.googleapis.com/css2?family=Artegra+Sans+Extended+SC:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css.css">
+
 </head>
 <body>
   <!-- Menú Superior -->
   <nav class="menu">
     <ul>
-      <li><a href="#">iLux</a></li>
+      <li><a href="#" id="logo">iLux</a></li>
+      <!-- Nuevas opciones de menú -->
+      <li><a href="#">Opción 2</a></li>
+      <li><a href="#">Opción 3</a></li>
+      <li><a href="#">Opción 4</a></li>
     </ul>
   </nav>
   
@@ -22,7 +27,39 @@
     <div class="bubble small"><i class="fas fa-envelope"></i></div>
   </div>
 
+  <!-- Menú deslizante oculto inicialmente -->
+  <div class="submenu" id="submenu">
+    <ul>
+      <li><a href="#" id="logo">iLux</a></li>
+      <li><a href="#">Submenú 1</a></li>
+      <li><a href="#">Submenú 2</a></li>
+      <li><a href="#">Submenú 3</a></li>
+      <li><a href="#" id="closeMenu">Cerrar</a></li>
+    </ul>
+  </div>
+
   <!-- Enlace para FontAwesome (iconos) -->
   <script src="https://kit.fontawesome.com/f305ff23c4.js" crossorigin="anonymous"></script>
+
+  <script>
+    // JavaScript para mostrar y ocultar el menú deslizante
+    document.getElementById('logo').addEventListener('click', toggleMenu);
+    document.getElementById('closeMenu').addEventListener('click', toggleMenu);
+    document.addEventListener('click', function(event) {
+      var submenu = document.getElementById('submenu');
+      var targetElement = event.target; // Elemento clicado
+
+      // Si el clic no está dentro del menú deslizante ni en el logo que lo abre, lo cerramos
+      if (!submenu.contains(targetElement) && targetElement.id !== 'logo') {
+        submenu.style.left = '-300px';
+      }
+    });
+
+    function toggleMenu(e) {
+      e.preventDefault();
+      var submenu = document.getElementById('submenu');
+      submenu.style.left = submenu.style.left === '0px' ? '-300px' : '0px';
+    }
+  </script>
 </body>
 </html>

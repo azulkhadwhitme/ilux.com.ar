@@ -9,7 +9,7 @@
 .menu {
   font-family: 'Artegra Sans Extended SC', sans-serif;
   font-weight: 700; /* Bold */
-  background-color: #000;
+  background-color: #ffffff;
   padding: 10px;
 }
 
@@ -25,10 +25,14 @@
 
 .menu ul li a {
   font-family: 'Artegra Sans Extended SC', sans-serif;
+  font-size: 20px;
   font-weight: 700; /* Bold */
-  color: white;
+  color: rgb(0, 0, 0);
   text-decoration: none;
   padding: 10px 20px;
+}
+.menu ul li:hover {
+  background-color: #9edadc; /* Cambiamos el color al hacer hover */
 }
 
 /* Estilo de las burbujas flotantes */
@@ -44,8 +48,8 @@
   height: 60px;
   line-height: 60px;
   text-align: center;
-  background-color: #000;
-  color: white;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
   border-radius: 50%;
   margin-bottom: 10px;
   font-size: 24px; /* Tamaño del ícono */
@@ -59,7 +63,7 @@
 }
 
 .bubble:hover {
-  background-color: #333;
+  background-color: #000000;
 }
 
 /* Estilo de los íconos */
@@ -82,4 +86,42 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+}
+
+/* Estilo del submenú */
+.submenu {
+  position: fixed;
+  top: 0;
+  left: -300px; /* Ocultamos inicialmente el menú */
+  width: 300px;
+  height: 100%;
+  background-color: #ffffff;
+  transition: left 0.3s ease; /* Animación de deslizamiento */
+}
+
+.submenu ul {
+  padding: 20px;
+  list-style: none;
+  margin: 0;
+}
+
+.submenu ul li {
+  margin-bottom: 15px; /* Aumentamos el espaciado entre las opciones */
+  transition: background-color 0.3s; /* Animación de cambio de color al hacer hover */
+  width: 100%; /* Ocupar todo el ancho disponible */
+}
+
+.submenu ul li:hover {
+  background-color: #9edadc; /* Cambiamos el color al hacer hover */
+}
+
+.submenu ul li a {
+  color: #000000;
+  text-decoration: none;
+  font-size: 20px; /* Cambiamos el tamaño de la fuente */
+  letter-spacing: 1px; /* Agregamos separación entre las letras */
+}
+
+.submenu ul li a:hover {
+  color: #fff; /* Cambiamos el color del texto al hacer hover */
 }
