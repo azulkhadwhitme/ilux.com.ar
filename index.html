@@ -3,63 +3,106 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menú y Burbujas Flotantes</title>
+  <title>Ilux</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+    </style>
   <link href="https://fonts.googleapis.com/css2?family=Artegra+Sans+Extended+SC:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css.css">
-
+  <link rel="shortcut icon" type="image/png" href="LOGO en JPG .jpg">
 </head>
 <body>
-  <!-- Menú Superior -->
   <nav class="menu">
     <ul>
       <li><a href="#" id="logo">iLux</a></li>
-      <!-- Nuevas opciones de menú -->
-      <li><a href="#">Opción 2</a></li>
-      <li><a href="#">Opción 3</a></li>
-      <li><a href="#">Opción 4</a></li>
+      <li><a href="#">productos</a></li>
+      <li><a href="#">soluciones</a></li>
+      <li><a href="#">sobre nosotros</a></li>
+      <li><a href="#">productos únicos</a></li>
     </ul>
   </nav>
   
-  <!-- Burbujas Flotantes para Contactos -->
-  <div class="contactos">
-    <div class="bubble small"><i class="fab fa-whatsapp"></i></div>
-    <div class="bubble small"><i class="fab fa-facebook-f"></i></div>
-    <div class="bubble small"><i class="fas fa-envelope"></i></div>
-  </div>
+    <div class="contactos">
+      <a href="https://wa.me/+5491161160666" class="bubble small"><i class="fab fa-whatsapp"></i></a>
+      <a href="mailto:cabezas_cabezas@yahoo.es?subject=contactar" class="bubble small"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.facebook.com/100011589452351" class="bubble small"><i class="fab fa-facebook-f"></i></a>
+      <button id="dark-mode-toggle" class="bubble small"><i class="fa-solid fa-moon"></i></i></button>
+    </div>
+    
 
-  <!-- Menú deslizante oculto inicialmente -->
   <div class="submenu" id="submenu">
     <ul>
       <li><a href="#" id="logo">iLux</a></li>
-      <li><a href="#">Submenú 1</a></li>
-      <li><a href="#">Submenú 2</a></li>
+      <li><a href="#">Inversiones</a></li>
+      <li><a href="#">Historial </a></li>
       <li><a href="#">Submenú 3</a></li>
       <li><a href="#" id="closeMenu">Cerrar</a></li>
     </ul>
   </div>
 
-  <!-- Enlace para FontAwesome (iconos) -->
+  <div class="slider-container">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <h1>Página en proceso</h1>
+        </div>
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </div>
+
+  
+
   <script src="https://kit.fontawesome.com/f305ff23c4.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
   <script>
-    // JavaScript para mostrar y ocultar el menú deslizante
     document.getElementById('logo').addEventListener('click', toggleMenu);
     document.getElementById('closeMenu').addEventListener('click', toggleMenu);
     document.addEventListener('click', function(event) {
       var submenu = document.getElementById('submenu');
-      var targetElement = event.target; // Elemento clicado
-
-      // Si el clic no está dentro del menú deslizante ni en el logo que lo abre, lo cerramos
+      var targetElement = event.target; 
+  
       if (!submenu.contains(targetElement) && targetElement.id !== 'logo') {
         submenu.style.left = '-300px';
       }
     });
-
+  
     function toggleMenu(e) {
       e.preventDefault();
       var submenu = document.getElementById('submenu');
       submenu.style.left = submenu.style.left === '0px' ? '-300px' : '0px';
     }
+  
+    document.addEventListener('DOMContentLoaded', function () {
+      var mySwiper = new Swiper('.swiper-container', {
+        loop:true, 
+        autoplay: {
+          delay: 5000, 
+          disableOnInteraction: false 
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        slidesPerView: 1,
+        on: {
+          mouseenter: function () {
+            mySwiper.autoplay.stop();
+          },
+          mouseleave: function () {
+            mySwiper.autoplay.start();
+          }
+        }
+      });
+    });
+
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+
+    darkModeToggle.addEventListener('click', function() {
+      document.body.classList.toggle('dark-mode');
+    });
   </script>
 </body>
 </html>

@@ -1,38 +1,56 @@
-/* Reset CSS básico */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+
+
 /* Estilo del menú */
 .menu {
-  font-family: 'Artegra Sans Extended SC', sans-serif;
-  font-weight: 700; /* Bold */
+  font-family: "Nanum Gothic", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  
   background-color: #ffffff;
   padding: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.menu:hover {
+  background-color: #ECDEC7;
 }
 
 .menu ul {
   list-style-type: none;
   display: flex;
   justify-content: space-around;
+  padding: 0;
 }
 
 .menu ul li {
-  display: inline;
+  display: inline-block;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu ul li:hover {
+  background-color: #ECDEC7;
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .menu ul li a {
   font-family: 'Artegra Sans Extended SC', sans-serif;
   font-size: 20px;
-  font-weight: 700; /* Bold */
+  font-weight: 700;
   color: rgb(0, 0, 0);
   text-decoration: none;
-  padding: 10px 20px;
+  padding: 15px 25px;
+  transition: color 0.3s ease;
 }
-.menu ul li:hover {
-  background-color: #9edadc; /* Cambiamos el color al hacer hover */
+
+.menu ul li:hover a {
+  color: #fff;
 }
 
 /* Estilo de las burbujas flotantes */
@@ -44,6 +62,7 @@
 
 .bubble {
   display: block;
+  transform: translateY(-5px);
   width: 60px;
   height: 60px;
   line-height: 60px;
@@ -52,7 +71,7 @@
   color: rgb(0, 0, 0);
   border-radius: 50%;
   margin-bottom: 10px;
-  font-size: 24px; /* Tamaño del ícono */
+  font-size: 24px;
 }
 
 .bubble.small {
@@ -63,6 +82,7 @@
 }
 
 .bubble:hover {
+  transform: translateY(-5px);
   background-color: #000000;
 }
 
@@ -79,24 +99,28 @@
   color: #db4437;
 }
 
-/* Estilo de la imagen de fondo */
+
 body {
   font-family: 'Artegra Sans Extended SC', sans-serif;
-  background-image: url('a.jpg');
+  background-image: url('negro.jpg') ;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
-/* Estilo del submenú */
 .submenu {
   position: fixed;
   top: 0;
-  left: -300px; /* Ocultamos inicialmente el menú */
+  left: -300px;
   width: 300px;
   height: 100%;
   background-color: #ffffff;
-  transition: left 0.3s ease; /* Animación de deslizamiento */
+  transition: left 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: -10px 0px 20px rgba(0, 0, 0, 0.2);
+}
+
+.submenu:hover {
+  background-color: #ECDEC7;
 }
 
 .submenu ul {
@@ -106,22 +130,154 @@ body {
 }
 
 .submenu ul li {
-  margin-bottom: 15px; /* Aumentamos el espaciado entre las opciones */
-  transition: background-color 0.3s; /* Animación de cambio de color al hacer hover */
-  width: 100%; /* Ocupar todo el ancho disponible */
-}
-
-.submenu ul li:hover {
-  background-color: #9edadc; /* Cambiamos el color al hacer hover */
+  margin-bottom: 20px;
 }
 
 .submenu ul li a {
   color: #000000;
   text-decoration: none;
-  font-size: 20px; /* Cambiamos el tamaño de la fuente */
-  letter-spacing: 1px; /* Agregamos separación entre las letras */
+  font-size: 24px;
+  font-weight: 600;
+  transition: color 0.3s ease;
 }
 
-.submenu ul li a:hover {
-  color: #fff; /* Cambiamos el color del texto al hacer hover */
+.submenu ul li:hover a {
+  color: #fff;
+}
+
+.submenu ul li:hover {
+  background-color: #ECDEC7;
+}
+
+.menu:hover .submenu {
+  left: 0;
+}
+
+/* Estilo del contenedor del slider */
+.slider-container {
+  position: relative;
+  background-color: transparent;
+  width: 80%;
+  max-width: 800px;
+  margin: 50px auto 20px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.slider-container:hover {
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+menu ul li {
+  display: inline-block;
+}
+
+#dark-mode-toggle {
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+#dark-mode-toggle:hover {
+  background-color: #000000;
+  color: #ffffff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+.dark-mode .menu {
+  font-family: 'Artegra Sans Extended SC', sans-serif;
+  font-weight: 700;
+  background-color: #000000;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.dark-mode .menu a {
+  color: #ffffff;
+}
+
+.dark-mode .menu:hover {
+  background-color: #0f0f0e;
+}
+.dark-mode.menu ul li:hover {
+  background-color: #000000;
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+body.dark-mode{
+  font-family: 'Artegra Sans Extended SC', sans-serif;
+  background-image: url('halo.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
+.dark-mode .contactos .bubble {
+  background-color: #000000;
+  transform: translateY(-5px);
+  color: #ffffff;
+}
+
+.dark-mode .contactos .bubble:hover {
+  background-color: #ffffff;
+  transform: translateY(-5px);
+  color: #ffffff;
+}
+
+.dark-mode .submenu {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  width: 300px;
+  height: 100%;
+  background-color: #1a1a1a;
+  transition: left 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: -10px 0px 20px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .submenu:hover {
+  background-color: #060606;
+}
+
+.dark-mode .submenu ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+.dark-mode .submenu ul li:hover {
+  background-color: #1a1a1a;
+}
+
+.dark-mode .menu ul li:hover {
+  background-color: #1a1a1a;
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
 }
